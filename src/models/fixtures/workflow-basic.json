@@ -1,0 +1,78 @@
+[
+  {
+    "pk": 1, 
+    "model": "stateworkflow.workflow", 
+    "fields": {
+      "default_state": 1, 
+      "name": "Basic Workflow"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "stateworkflow.state", 
+    "fields": {
+      "name": "Open", 
+      "workflow": 1
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "stateworkflow.state", 
+    "fields": {
+      "name": "In Testing", 
+      "workflow": 1
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "stateworkflow.state", 
+    "fields": {
+      "name": "Closed", 
+      "workflow": 1
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "stateworkflow.transition", 
+    "fields": {
+      "starting_state": 1, 
+      "do_scripts": [], 
+      "permission_scripts": [], 
+      "name": "Submit for testing", 
+      "ending_state": 2
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "stateworkflow.transition", 
+    "fields": {
+      "starting_state": 2, 
+      "do_scripts": [], 
+      "permission_scripts": [], 
+      "name": "Testing successful", 
+      "ending_state": 3
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "stateworkflow.transition", 
+    "fields": {
+      "starting_state": 2, 
+      "do_scripts": [], 
+      "permission_scripts": [], 
+      "name": "Testing failed", 
+      "ending_state": 1
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "stateworkflow.transition", 
+    "fields": {
+      "starting_state": 3, 
+      "do_scripts": [], 
+      "permission_scripts": [], 
+      "name": "Re-open", 
+      "ending_state": 1
+    }
+  }
+]
